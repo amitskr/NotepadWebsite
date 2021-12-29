@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <title>NotepadWebsite</title>
 
 </head>
 <body>
  <body>
-  <div id="wrapper">
+  <div id="wrapper" style="margin-left: 35%;">
     <div id="note-editor">
 
-      <h1>Notepad Website</h1>
-      <h1>Rumi Sarkar's edit</h1>
+      <h1 style="margin-left:13%;">Notepad Website</h1>
 
-      <h2 id="note-editor-title">Create Note</h2>
+      <h2 id="note-editor-title" style="margin-left:18%;">Create Note:</h2>
       <label>Title:</label>
-      <input type="text" id="title" name="title" /> <!-- I will use CSS to increase the box size -->
+      <textarea rows="1" cols="50" type="text" id="title" name="title" placeholder="Enter the text here"></textarea>
+
+      <br><br> <!-- I will use CSS to increase the box size -->
       <label>Body:</label>
-      <textarea rows="10" cols="50" id="message" name="message"></textarea>
+      <textarea rows="10" cols="50" id="message" name="message" placeholder="Enter note text here"></textarea> <br><br>
 
       <label>Color:</label>
       <select id="color" name="color">
@@ -28,13 +30,14 @@
       </select>
 
       <div id="button">
+        <br>
         <button id="add-btn">Save</button>
         <div id="error"></div>
       </div>
     </div>
 
     <div id="notes-section">
-      <h2>Saved Notes</h2>
+      <h2 style="margin-left:18%;">Saved Notes</h2>
       <ul id="notes"></ul>
     </div>
   </div>
