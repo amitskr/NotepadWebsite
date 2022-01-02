@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
-  <title>NotepadWebsite</title>
+  <title>Notepad App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
- <body>
-  <div id="wrapper" style="margin-left: 35%;">
-    <div id="note-editor">
+<div id='app'>
+  <aside>
 
-      <h1 style="margin-left:13%;">Notepad Website</h1>
-
-      <h2 id="note-editor-title" style="margin-left:18%;">Create Note:</h2>
-      <label>Title:</label>
-      <textarea rows="1" cols="50" type="text" id="title" name="title" placeholder="Enter the text here"></textarea>
-
-      <br><br> <!-- I will use CSS to increase the box size -->
-      <label>Body:</label>
-      <textarea rows="10" cols="50" id="message" name="message" placeholder="Enter note text here"></textarea> <br><br>
-
-      <label>Color:</label>
-      <select id="color" name="color">
-        <option value="red" selected>Red</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-        <option value="blue">Yellow</option>
-      </select>
-
-      <div id="button">
-        <br>
-        <button id="add-btn">Save</button>
-        <div id="error"></div>
+    <div class='inner'>
+      <a id="btnn" v-if='notes.length' href='#' @click.prevent='clearCurrentNote'>New note</a>
+      <p id="deftxt" v-else>No notes! Get writing</p>
+    </div>
+    
+    <div class='notes' v-if='notes.length'>
+      <div class='note' v-for='note in notesSorted'>
+        <a href='#' class='remove' @click.prevent='deleteNote(note.id)'><span class='icon'>&#x2716;</span></a>
+        <div class='note-inner'>
+          <a href='#' class='title' @click.prevent='openNote(note)'>
+            <span v-if='note.title'>{{ note.title }}</span>
+            <span v-else>Untitled note</span>
+          </a>
+          <p class='body'>
+            <span v-if='note.body'>{{ note.body }}</span>
+            <span v-else>Empty</span>
+          </p>
+        </div>
       </div>
     </div>
 
-    <div id="notes-section">
-      <h2 style="margin-left:18%;">Saved Notes</h2>
-      <ul id="notes"></ul>
-    </div>
-  </div>
-</body>
+  </aside>
+  
+  <main>
+    <input id="ipt" type='text' placeholder='Title goes here' v-model='note.title' v-on:keydown='saveNote'>
+    <textarea placeholder='Start typing...' v-model='note.body' v-on:keydown='saveNote'></textarea>
+    <footer>
+      <p>Words: {{ wordCount }}</p>
+      <p>Last saved: {{ lastSaved }}</p>
+    </footer>
+  </main>
 
-  <script  src="./script.js"></script>
+</div>
+
+  <script src='https://unpkg.com/vue/dist/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+<script src="script.js"></script>
 
 </body>
 </html>
