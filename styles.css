@@ -1,0 +1,147 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  height: 100%;
+}
+
+input, textarea {
+  max-width: 100%;
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+}
+
+aside {
+  min-width: 20%;
+  height: 100%;
+  flex: 1;
+  background: rgb(141, 171, 206);
+  border-right: 1px solid gray;
+  overflow-y: auto;
+}
+aside .inner {
+  border: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+aside .note {
+  display: flex;
+  opacity: 0.4;
+  max-width: 100%;
+  border-bottom: 1px solid gray;
+}
+aside .note:hover {
+  opacity: 1;
+}
+aside .note:hover .remove {
+  position: relative;
+  margin-left: 0;
+}
+aside .note .remove {
+  display: block;
+  position: absolute;
+  background: rgb(85, 27, 16);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  width: 50px;
+  margin-left: -50%;
+  transition: margin-left 100ms ease-in-out;
+}
+aside .note .remove .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+aside .note .note-inner {
+  color: rgb(255, 255, 255);
+  background-color: blueviolet;
+  padding: 10px;
+  overflow: hidden;
+  flex: 2;
+}
+aside .note .note-inner .title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: darkorange;
+}
+aside .note .note-inner .body {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+main {
+  height: 100%;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+main input {
+  padding: 20px;
+  border-bottom: 1px solid gray;
+}
+main textarea {
+  flex: 1;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+}
+main footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#btnn {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  width: 100px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+#ipt {
+color: rgb(0, 0, 0);
+font-size:x-large;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight: bolder;
+}
+
+#deftxt {
+  color: rgb(0, 0, 0);
+font-size:large;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight: bolder;
+}
