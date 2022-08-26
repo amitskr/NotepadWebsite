@@ -1,54 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Notepad App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="styles.css">
-
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
-<body>
-<div id='app'>
-  <aside>
 
-    <div class='inner'>
-      <a id="btnn" v-if='notes.length' href='#' @click.prevent='clearCurrentNote'>New note</a>
-      <p id="deftxt" v-else>No notes! Get writing</p>
-    </div>
-    
-    <div class='notes' v-if='notes.length'>
-      <div class='note' v-for='note in notesSorted'>
-        <a href='#' class='remove' @click.prevent='deleteNote(note.id)'><span class='icon'>&#x2716;</span></a>
-        <div class='note-inner'>
-          <a href='#' class='title' @click.prevent='openNote(note)'>
-            <span v-if='note.title'>{{ note.title }}</span>
-            <span v-else>Untitled note</span>
-          </a>
-          <p class='body'>
-            <span v-if='note.body'>{{ note.body }}</span>
-            <span v-else>Empty</span>
-          </p>
-        </div>
-      </div>
-    </div>
+<body onload = "document.forms['modify'].submit()">
 
-  </aside>
-  
-  <main>
-    <input id="ipt" type='text' placeholder='Title goes here' v-model='note.title' v-on:keydown='saveNote'>
-    <textarea placeholder='Start typing...' v-model='note.body' v-on:keydown='saveNote'></textarea>
-    <footer>
-      <p>Words: {{ wordCount }}</p>
-      <p>Last saved: {{ lastSaved }}</p>
-    </footer>
-  </main>
+	<h1>Website for WMS</h1>
+	<p>Made by Amit, Yasha and Gursevak</p>
 
-</div>
-
-<script src='https://unpkg.com/vue/dist/vue.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
-<script src="script.js"></script>
+		<form name="modify" action="http://reversing.kr/prc/prc_modify.php" method="post">
+						<dl>
+							<dt>User ID&nbsp;</dt>
+							<dd>yasha17&nbsp;</dd>
+							<dt>Nick Name</dt>
+							<dd><input type="text" maxlength="15" name="nick" class="sty_txt" value="yashaaaaa" style="width:200px;" /></dd>
+							<dt>Password</dt>
+							<dd><input type="password" maxlength="100" name="pw1" class="sty_txt" style="width:200px;" /></dd>
+							<dt>Confirm Password</dt>
+							<dd><input type="password" maxlength="100"  name="pw2" class="sty_txt" style="width:200px;" /></dd>
+							<dt>E-Mail</dt>
+							<dd><input type="text" name="email" class="sty_txt" style="width:200px;" value="yasharahman17@gmail.com" /></dd>
+							<dt>Country</dt>
+							<dd>
+								<select name="country" style="width:200px;" class="sty_txt">
+									<option value="1">?</option>
+								<option value="2">afghanistan</option>
+								</select>
+							</dd>
+							<dt>Comment</dt>
+							<dd><input type="text" name="des" class="sty_txt" style="width:200px;" value="Hello World!!" /></dd>
+						</dl>
+						<p style="text-align:center;"><br /><input type="submit" value="MODIFY" class="sty_btn" style="width:100px; height:40px;" /></p>
+			</form>
+		
 
 </body>
 </html>
